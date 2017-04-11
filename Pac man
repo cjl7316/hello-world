@@ -1,0 +1,6 @@
+size(120,120);
+fill(255,255,0);
+arc(60, 60, 80, 80, QUARTER_PI,TWO_PI-QUARTER_PI,PIE);
+// Black
+fill(0,0,0);
+ellipse(60,45,10,10);
