@@ -8,16 +8,27 @@ void draw(){
  
   background(204);
   fill(255,100,0);
-arc(x+30, y+30, 80, 80, 0, PIE+QUARTER_PI, PIE);
-rect(x+1, y+59, 55, 55);
-fill(255,255,0);
-triangle(x-3, y+6, x+20, y+0, x+20, y+22);
+{if (key == 'c') {// Press C to change Color any other key to change back to original 
+    fill(255,0,0);
+  } else {
+    fill(255,100,0);
+  }
+    rect(x+1, y+59, 55, 55);
+    arc(x+30, y+30, 80, 80, 0, PIE+QUARTER_PI, PIE);
+ fill(255,0,0);
+ if (key == 'c')
+    fill(0,12,255);
+    else
+        fill(255,255,0);
+  triangle(x-3, y+6, x+20, y+0, x+20, y+22);
 triangle(x+45, y+30, x+55, y+20, x+69, y+30);
 rect(x+1, y+114, 15, 30);
 rect(x+41,y+114, 15, 30);
-ellipse(x+5, y+30, 20, 20);
-fill(0,0,0);
-  ellipse(x+5, y+30, 10, 10); 
+}
+fill(255);
+  ellipse(x+5, y+30, 20, 20); 
+  fill(0,0,0);
+   ellipse(x+5+mouseX/50,y+30+mouseY/50,10,10);
 }
 void keyPressed() {
   if (key == CODED) {
