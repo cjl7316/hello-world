@@ -1,0 +1,23 @@
+//cole Lindbeck
+//05/07/17
+PFont font;
+PFont font2;
+void setup() {
+  smooth();
+ size(500, 200);
+ font = loadFont("Tahoma-20.vlw");
+ textFont(font);
+ font2= loadFont("TimesNewRomanPS-BoldMT-20.vlw");
+ textFont(font2);
+}
+void draw(){
+  background(0);
+ textFont(font);
+ textSize(40);
+ text("Cole Lindbeck", 26, 30, 400, 200);
+ fill(255, 9, 15);
+ textFont(font2);
+ textSize(60);
+ text("Cole Lindbeck", 26, 80, 400, 200);
+ fill(4, 16, 253);
+}
