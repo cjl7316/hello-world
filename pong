@@ -1,0 +1,54 @@
+// Cole Lindbeck 5/9/2017
+int paddle_x = 200;
+int paddle_length = 110;
+int paddle_height = 10;
+int ballspeed1 = 2; 
+int ballspeed2 = 2; 
+int ballsize = 20;
+int ballx = int(random(0,300)); 
+int bally = int(random(0,320));
+int stop = 0;
+void setup(){   
+size(320, 400);  
+}
+void draw(){
+  if (stop == 0){
+    background(0,30,254);
+    fill(255,253,253);
+    rect(paddle_x, height-paddle_height, paddle_length, paddle_height);
+    ellipse(ballx, bally, ballsize, ballsize);
+    if (keyPressed && (key == CODED)) { 
+      if (keyCode == LEFT) {
+        if (paddle_x > 0){ 
+          paddle_x-=2;
+        }
+      }
+      else if (keyCode == RIGHT) {
+        if (paddle_x < 270){
+          paddle_x+=2;
+        }
+      }
+    }
+    ballx += ballspeed1;
+    bally += ballspeed2;
+    if(ballx < 3){
+      ballspeed1 = 3;
+    }
+    else if(ballx > (width-3)){
+      ballspeed1 = -3;
+    }
+  
+    if(bally < 3){
+      ballspeed2 = 3;
+    }
+    else if(bally > (height-paddle_height-3)){
+      if((ballx > paddle_x) && (ballx < (paddle_x+paddle_length))){
+        ballspeed2 = -3;
+   }
+      else{
+        stop = 1;
+        background(0);
+      }
+    }
+  }
+}
