@@ -1,4 +1,7 @@
 // Cole Lindbeck 5/9/2017
+PFont font;
+int timer = second();
+int score=0;
 int paddle_x = 200;
 int paddle_length = 110;
 int paddle_height = 10;
@@ -7,14 +10,21 @@ int ballspeed2 = 2;
 int ballsize = 20;
 int ballx = int(random(0,300)); 
 int bally = int(random(0,320));
-int stop = 0;
+int try_again = 0;
 void setup(){   
-size(320, 400);  
+size(320, 400); 
 }
 void draw(){
-  if (stop == 0){
+   if (try_again ==0){
     background(0,30,254);
-    fill(255,253,253);
+  int timer=second();
+  println(timer,score);
+  background(0,30,254);
+  textSize(25);
+  text(timer, 0,20,300);
+  text(score,300,20,50);
+  font=loadFont("Arial-BoldItalicMT-48.vlw");
+    fill(253,255,255);
     rect(paddle_x, height-paddle_height, paddle_length, paddle_height);
     ellipse(ballx, bally, ballsize, ballsize);
     if (keyPressed && (key == CODED)) { 
@@ -46,9 +56,19 @@ void draw(){
         ballspeed2 = -3;
    }
       else{
-        stop = 1;
-        background(0);
+background(0,30,254);
+         try_again = 1;
+        textSize(48);
+        fill(255,0,0);
+        text("Try Again", 40, height/2);
+         textSize(20);
+        text("Pong by Cole The Great", 40, 300);
+      }
+      {
+       if (bally == 389)
+        score+=1;
+      }
+      }
+
       }
     }
-  }
-}
